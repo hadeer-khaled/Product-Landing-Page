@@ -13,6 +13,9 @@
   box-sizing: border-box;
   /* overflow: hidden; */
 }
+::selection{
+  background-color: #fdc7096b;
+}
 ul {
   list-style: none;
 }
