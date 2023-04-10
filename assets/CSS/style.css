@@ -11,7 +11,7 @@
   padding: 0;
   font-family: "Roboto Slab", serif;
   box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 ul {
   list-style: none;
@@ -73,6 +73,9 @@ nav ul li a {
   color: white;
   letter-spacing: 1.3px;
 }
+nav ul li a:hover{
+  color: var(--yellow-color);
+}
 /*Landing*/
 .landing {
   background-color: var(--brown-color);
@@ -114,6 +117,7 @@ nav ul li a {
   border-radius: 10px;
   background-color: var(--yellow-color);
   border: none;
+  cursor: pointer;
 }
 .landing .right-side {
   /* display: flex; */
@@ -179,6 +183,7 @@ nav ul li a {
   display: flex;
   justify-content: space-between;
   padding: var(--top-padding);
+  margin-top: 30px;
 }
 .why-us .right-side .reason {
   width: 30%;
@@ -190,12 +195,13 @@ nav ul li a {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  animation-name: cards-animation;
+  /* animation-name: cards-animation; */
   animation-duration: 2s;
   animation-timing-function: ease;
   border-radius: 10px;
   box-shadow: 0px 0px 17px 0px #9e9e9ea6;
 }
+
 .why-us .right-side .reason:nth-child(2) {
   animation-delay: 0.3s;
 }
@@ -258,6 +264,8 @@ nav ul li a {
   }
   .why-us .right-side .reason {
     width: 35%;
+    margin-bottom: 30px;
+    margin-left: 30px;
   }
 }
 /****************************************** Our Products ******************************************/
@@ -276,6 +284,7 @@ nav ul li a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 .products .products-imgs .row-1,
 .products .products-imgs .row-2 {
@@ -283,14 +292,14 @@ nav ul li a {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-/* .products .products-imgs .row-1 {
+.products .products-imgs .row-1 {
   position: relative;
   right: -1000px;
-  animation-name: products-animation-right;
+  /* animation-name: products-animation-right; */
   animation-duration: 3s;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
-} */
+}
 @keyframes products-animation-right {
   from {
     right: -1000px;
@@ -299,28 +308,66 @@ nav ul li a {
     right: 0px;
   }
 }
-/* .products .products-imgs .row-2 {
+.products .products-imgs .row-2 {
   position: relative;
-  left: -1000px;
+  left: -1100px;
   margin-top: 10px;
-  animation-name: products-animation-left;
+  /* animation-name: products-animation-left; */
   animation-delay: 2s;
   animation-duration: 3s;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
-} */
+}
 @keyframes products-animation-left {
   from {
-    left: -1000px;
+    left: -1100px;
   }
   to {
     left: 0px;
   }
 }
-.products .products-imgs img {
-  width: 250px;
+.products .products-imgs .prod-img {
+  position: relative;
+  overflow: hidden;
   border-radius: 10px;
 }
+
+.products .products-imgs .prod-img img {
+  width: 250px;
+  border-radius: 10px;
+  display: block;
+  transition: 0.3s;
+}
+.products .products-imgs .prod-img:hover img {
+  transform: scale(1.1);
+}
+
+.layer {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  bottom: 0px;
+  left: 0px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), var(--yellow-color));
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.layer p {
+  font-size: 17px;
+  padding-bottom: 15px;
+}
+.products .products-imgs .prod-img:hover .layer {
+  height: 100%;
+}
+
 /* .products .products-imgs img:hover {
 } */
 @media (max-width: 530px) {
@@ -333,10 +380,12 @@ nav ul li a {
     justify-content: center;
     flex-wrap: wrap;
   }
+  .products .products-imgs .prod-img {
+    margin-bottom: 20px;
+  }
   .products .products-imgs img {
     width: 250px;
     border-radius: 10px;
-    margin-bottom: 20px;
   }
 }
 @media (min-width: 531px) and (max-width: 1245px) {
@@ -352,10 +401,12 @@ nav ul li a {
   .products .products-imgs .row-2 {
     margin-top: 0px;
   }
+  .products .products-imgs .prod-img {
+    margin-bottom: 10px;
+  }
   .products .products-imgs img {
     width: 200px;
     border-radius: 10px;
-    margin-bottom: 10px;
   }
 }
 /****************************************** Footer ******************************************/
