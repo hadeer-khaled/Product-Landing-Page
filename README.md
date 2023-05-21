@@ -6,7 +6,7 @@
 
 ![demo](demo.gif)
 
-### Screenshoot
+### Screenshot
 
 ![home](Produnct_Landing_Page.png)
 
